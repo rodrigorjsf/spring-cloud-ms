@@ -25,7 +25,7 @@ public class WorkerResource {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Worker> findAll(@PathVariable("id") Long id) {
+    public ResponseEntity<Worker> findById(@PathVariable("id") Long id) {
         var optionalWorker = repository.findById(id);
         return optionalWorker.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.noContent().build());
     }
